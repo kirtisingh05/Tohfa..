@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Login - Tofha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #e9ecef;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .signup-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #dee2e6;
+            position: relative;
+        }
+        .back-to-home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+        .signup-container h2 {
+            color: #007bff;
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .form-group small {
+            color: #6c757d;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 1px solid #dee2e6;
+            color: #495057;
+            background-color: #ffffff;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        .btn-icon:hover {
+            background-color: #f1f1f1;
+            color: #007bff;
+        }
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .switch-text {
+            color: #007bff;
+            font-weight: 600;
+            margin: 0 0.5rem;
+        }
+        .toggle-button {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 26px;
+            margin: 0 1rem;
+        }
+        .toggle-button input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 26px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(34px);
+        }
+        .login-link, .signup-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .login-link a, .signup-link a {
+            color: #007bff;
+            font-weight: 600;
+        }
+        .login-link a:hover, .signup-link a:hover {
+            text-decoration: underline;
+        }
+        .social-buttons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <button class="back-to-home" onclick="window.location.href='/'">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="toggle-switch">
+            <span class="switch-text">Sign Up</span>
+            <label class="toggle-button">
+                <input type="checkbox" id="toggleSwitch">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-text">Login</span>
+        </div>
+        <h2 class="text-center mb-4" id="formTitle">Sign Up</h2>
+        <form id="signupForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <small class="form-text">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </form>
+        <form id="loginForm" style="display: none;">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <div class="social-buttons">
+            <a href="#" class="btn-icon"><i class="fab fa-google"></i></a>
+        </div>
+    </div>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Firebase Authentication SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <script>
+        // Your Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDtCA-Yf8Ne31ENI6oG3fHsQt8VFZaY_nQ",
+            authDomain: "tohfa-database.firebaseapp.com",
+            projectId: "tohfa-database",
+            storageBucket: "tohfa-database.appspot.com",
+            messagingSenderId: "187759309382",
+            appId: "1:187759309382:web:8113dbe86334cc28ead047",
+            measurementId: "G-J3PT8QFLSS"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the Firebase Auth service
+        var auth = firebase.auth();
+
+        // Toggle between Sign Up and Login
+        document.getElementById('toggleSwitch').addEventListener('change', function () {
+            var signupForm = document.getElementById('signupForm');
+            var loginForm = document.getElementById('loginForm');
+            var formTitle = document.getElementById('formTitle');
+            var switchText = document.querySelectorAll('.switch-text');
+
+            if (this.checked) {
+                signupForm.style.display = 'none';
+                loginForm.style.display = 'block';
+                formTitle.innerText = 'Login';
+                switchText[0].innerText = 'Sign Up';
+                switchText[1].innerText = 'Login';
+            } else {
+                signupForm.style.display = 'block';
+                loginForm.style.display = 'none';
+                formTitle.innerText = 'Sign Up';
+                switchText[0].innerText = 'Sign Up';
+                switchText[1].innerText = 'Login';
+            }
+        });
+
+        // Handle Sign Up
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(function (userCredential) {
+                    var user = userCredential.user;
+                    console.log("User created: ", user);
+                    alert("Sign up successful!");
+                    window.location.href = '/';
+                })
+                .catch(function (error) {
+                    console.error("Error signing up: ", error.message);
+                    alert(error.message);
+                });
+        });
+
+        // Handle Login
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var email = document.getElementById('loginEmail').value;
+            var password = document.getElementById('loginPassword').value;
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then(function (userCredential) {
+                    var user = userCredential.user;
+                    alert("Login successful!");
+                    window.location.href = '/';
+                })
+                .catch(function (error) {
+                    console.error("Error logging in: ", error.message);
+                    alert(error.message);
+                });
+        });
+
+        // Handle Google Sign-In
+        document.querySelector('.btn-icon').addEventListener('click', function () {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then(function (result) {
+                    var user = result.user;
+                    alert("Google Sign-In successful!");
+                    window.location.href = '/';
+                })
+                .catch(function (error) {
+                    console.error("Error with Google sign-in: ", error.message);
+                    alert(error.message);
+                });
+        });
+    </script>
+</body>
+</html>
